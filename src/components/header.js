@@ -43,7 +43,8 @@ const Header = ({ siteTitle }) => (
     <h1>Chicago Free-Mo</h1>
     <nav>
       <ol>
-        <li><a href="#">Learn More</a></li>
+        <li><Link to="blog">Blog</Link></li>
+        <li><Link to="plan">Plan</Link></li>
         <li><AnchorButton intention="inverse" title="Join Us" /></li>
       </ol>
     </nav>

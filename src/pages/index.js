@@ -8,7 +8,7 @@ import HR from '../components/hr'
 const IndexPage = () => (
   <Layout>
     <HeroBanner
-      image="driveIn"
+      image={driveIn}
       actionTitle="Plan Your Layout"
       actionLocation="plan"
       title="Bring Your Own Layout" 

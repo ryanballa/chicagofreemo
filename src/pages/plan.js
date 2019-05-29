@@ -17,6 +17,31 @@ const StyledSection = styled('section')({
     },
     '& .selectOption': {
         '& li': {
+            '&:after': {
+                bottom: 0,
+                content: "''",
+                display: 'block',
+                left: 0,
+                position: 'absolute',
+                height: '6px',
+                width: '100%',
+            },
+            '&.first:after': {
+                background: 'rgb(36, 183, 255)',
+                borderTop: '1px soid rgb(31, 156, 217)',
+            },
+            '&.second:after': {
+                background: '#6297cc',
+                borderTop: '#3d5e7f',
+            },
+            '&.third:after': {
+                background: '#2e5fcc',
+                borderTop: '#1b3878',
+            },
+            '&.fourth:after': {
+                background: '#2ebccc',
+                borderTop: '#134c52',
+            },
             background: '#FFFFFF',
             border: '1px solid #CCCCCC',
             boxShadow: '0px 1px 4px rgba(0, 0, 0, .1)',
@@ -24,7 +49,9 @@ const StyledSection = styled('section')({
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
+            overflow: 'hidden',
             padding: '15px',
+            position: 'relative',
             height: '110px',
             marginRight: '20px',
             width: '110px',
@@ -33,6 +60,7 @@ const StyledSection = styled('section')({
             marginRight: 0,
         },
         '& li:hover': {
+            background: '#efefef',
             cursor: 'pointer',
         },
         fontSize: '75%',
@@ -61,7 +89,7 @@ const PlanPage = () => {
                 <p>Answering a few questions will help us figure out what layout type is best for you.</p>
                 <img src={construction} alt="Layout under construction" width="200" />
                 <StyledSection>
-                    <h2><svg width="33" height="33" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+                    <h2><svg width="33" height="33" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-clock">
                         <circle cx="12" cy="12" r="10"></circle>
                         <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>Time</h2>
@@ -69,10 +97,10 @@ const PlanPage = () => {
                     <p>Model railroading is approachable for anyone and their time allowances. From a little time to a lot of time you can get a lot of of the hobby.</p>
                     <p><b>Select the amout of time you have available.</b></p>
                     <ul className="selectOption">
-                        <li onClick={() => setScore({1: 2})}><span>1 - 2 hours a month</span></li>
-                        <li onClick={() => setScore({1: 4})}><span>1 - 2 hours a week</span></li>
-                        <li onClick={() => setScore({1: 6})}><span>3 - 4 hours a week</span></li>
-                        <li onClick={() => setScore({1: 8})}><span>several hours a day</span></li>
+                        <li className="first" onClick={() => setScore({1: 2})}><span>1 - 2 hours a month</span></li>
+                        <li className="second" onClick={() => setScore({1: 4})}><span>1 - 2 hours a week</span></li>
+                        <li className="third" onClick={() => setScore({1: 6})}><span>3 - 4 hours a week</span></li>
+                        <li className="fourth" onClick={() => setScore({1: 8})}><span>several hours a day</span></li>
                     </ul>
                     <h2>
                         <svg width={iconWidth} height={iconHeight} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart">
@@ -88,7 +116,7 @@ const PlanPage = () => {
                         <li><span>More than 100 trains / railcars</span></li>
                     </ul>
                     <h2>
-                    <svg width={iconWidth} height={iconHeight}  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                    <svg width={iconWidth} height={iconHeight}  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-home">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
                     </svg>Space</h2>
