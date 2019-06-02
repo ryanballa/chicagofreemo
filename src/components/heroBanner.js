@@ -39,8 +39,9 @@ const StyledSection = styled('section')({
     '& .content': {
         '& h1': {
             color: colors.headerWhite,
+            fontFamily: 'LatoHairline',
             fontSize: fonts.xll,
-            fontWeight: 'normal',
+            fontWeight: '100',
             marginBottom: '10px',
             [breakPoints.phone]: {
                 fontSize: fonts.xl,

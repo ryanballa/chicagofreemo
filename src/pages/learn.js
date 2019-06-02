@@ -71,7 +71,7 @@ const StyledSection = styled('section')({
     }
 });
 
-const PlanPage = () => {
+const LearnPage = () => {
 
     const [score, setScore] = useState({});
     const iconHeight = 33;
@@ -81,8 +81,8 @@ const PlanPage = () => {
         <Layout>
             <HeroBanner
             image={bostonandmaine}
-            title="Interactive Layout Planner" 
-            subtitle="Getting started is easy and we can help." 
+            title="Learn About Free-Mo" 
+            subtitle="What is it and how does it work?" 
             />
             <Block>
                 <h1>Let's Begin</h1>
@@ -143,4 +143,4 @@ const PlanPage = () => {
     )   
 }
 
-export default PlanPage
+export default LearnPage

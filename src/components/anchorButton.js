@@ -4,12 +4,13 @@ import styled from '@emotion/styled'
 
 const StyledSpan = styled('span')(props => ({
   '& a:link, & a:visited, & a:active': {
-    color: (props.intention === 'inverse' ? '#0A7289': '#F9F9F9'),
+    boxShadow: 'none',
+    color: (props.intention === 'inverse' ? '#FFFFFF': '#F9F9F9'),
     fontSize: (props.intention === 'inverse') && '12px',
     textDecoration: 'none',
   },
-  background: (props.intention === 'inverse' ? '#F5F5F5' : '#2DD2F6'),
-  border: (props.intention !== 'inverse') && '2px solid #0A7289',
+  background: (props.intention === 'inverse' ? '#647C4C' : '#849E6B'),
+  border: (props.intention !== 'inverse') && '2px solid #647C4C',
   boxSizing: 'borderBox',
   borderRadius: '4px',
   display: 'inline-block',

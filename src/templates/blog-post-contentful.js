@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import Img from "gatsby-image"
+import Block from '../components/block'
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,39 +19,42 @@ class BlogPostContentfulTemplate extends React.Component {
           title={post.title}
           description={post.subtitle}
         />
-        <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.content.childContentfulRichText.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Bio />
+        <Img fluid={post.image.fluid} />
+        <Block>
+          <h1>{post.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.content.childContentfulRichText.html }} />
+          <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
+          <Bio />
 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.slug} rel="prev">
-                ← {previous.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.slug} rel="next">
-                {next.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.slug} rel="prev">
+                  ← {previous.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.slug} rel="next">
+                  {next.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
+        </Block>
       </Layout>
     )
   }
@@ -70,6 +74,11 @@ export const pageQuery = graphql`
      title
      subtitle
      author
+     image {
+       fluid {
+         ...GatsbyContentfulFluid
+       }
+     }
      content {
        childContentfulRichText {
          html

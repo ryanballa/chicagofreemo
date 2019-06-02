@@ -7,11 +7,14 @@ const StyledSection = styled('section')({
     '& h1' : {
         color: colors.headerContent,
         fontSize: fonts.xl,
+        fontFamily: 'LatoLight',
         fontWeight: 'lighter',
+        margin: '60px 10px 30px 10px',
     },
     '& p': {
       fontSize: fonts.s,
       lineHeight: fonts.l,
+      marginBottom: '60px',
     },
     color: '#4B4B4B',
     margin: '0 auto',

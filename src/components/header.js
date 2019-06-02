@@ -2,9 +2,14 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import AnchorButton from '../components/anchorButton'
+import Logo from '../components/logo'
+import { colors } from '../utils/styling'
 
 const StyledHeader = styled('header')({
   '& h1': {
+    '& a': {
+      boxShadow: 'none',
+    },
     color: '#F9F9F9',
     fontSize: '20px',
     margin: 0,
@@ -16,10 +21,15 @@ const StyledHeader = styled('header')({
     padding: 0,
   },
   '& li > a': {
+    '&.active': {
+      color: colors.active,
+      textDecoration: 'underline',
+    },
     '&:hover': {
       textDecoration: 'underline',
     },
-    color: '#F9F9F9',
+    boxShadow: 'none',
+    color: '#575964',
     fontSize: '14px',
     textDecoration: 'none',
   },
@@ -31,20 +41,23 @@ const StyledHeader = styled('header')({
   display: 'flex',
   left: 0,
   justifyContent: 'space-between',
-  padding: '10px',
-  position: 'absolute',
-  top: '20px',
+  padding: '20px',
   width: '100%',
   zIndex: 5,
 });
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-    <h1>Chicago Free-Mo</h1>
+    <h1>
+      <Link to="/">
+        <Logo />
+      </Link>
+    </h1>
     <nav>
       <ol>
-        <li><Link to="blog">Blog</Link></li>
-        <li><Link to="plan">Plan</Link></li>
+        <li><Link to="learn" activeClassName="active">Learn</Link></li>
+        <li><Link to="blog" activeClassName="active">Blog</Link></li>
+        <li><Link to="plan" activeClassName="active">Plan</Link></li>
         <li><AnchorButton intention="inverse" title="Join Us" /></li>
       </ol>
     </nav>

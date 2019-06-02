@@ -14,8 +14,11 @@ export const breakPoints = {
 }
 
 export const colors = {
+    active: '#647C4C',
     headerWhite: '#F9F9F9',
-    headerContent: '#0A424E',
+    headerContent: '#28321f',
+
+    light: '#989898',
 }
 
 export const fonts = {

@@ -6,10 +6,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Chicago Free-Mo`,
+    author: `Chicago Free-Mo`,
+    description: `A group of Chicagoans interested in Free-Mo.`,
+    siteUrl: `https://chicagofreemo.org`,
     social: {
       twitter: `kylemathews`,
     },

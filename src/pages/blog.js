@@ -1,10 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import HeroBanner from '../components/heroBanner'
+import Block from '../components/block'
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import newton from '../images/newton.jpeg'
+import Img from "gatsby-image"
 
 class BlogIndex extends React.Component {
     render() {
@@ -14,26 +17,36 @@ class BlogIndex extends React.Component {
 
         return (
             <Layout location={this.props.location} title={siteTitle}>
+                <HeroBanner
+                    image={newton}
+                    title="Blog" 
+                    subtitle="Learn about Free-Mo and Model Railroading" 
+                />
                 <SEO
                     title="All blog posts"
                     keywords={[`blog`, `model railroading`, `free-mo`, `ho scale`]}
                 />
-                <Bio />
-                {posts.map(({ node }) => {
-                    const title = node.title || node.slug
-                    return (
-                        <div key={node.slug}>
-                            <h3 style={{
-                                marginBottom: rhythm(1 / 4),
-                            }}>
-                                <Link to={node.slug}>
-                                    {title}
-                                </Link>
-                            </h3>
-                            <p>{node.subtitle}</p>
-                        </div>
-                    )
-                })}
+                <Block>
+                    {posts.map(({ node }) => {
+                        const title = node.title || node.slug
+                        return (
+                            <div key={node.slug}>
+                                <h3 style={{
+                                    marginBottom: rhythm(1 / 4),
+                                }}>
+                                    <Link to={node.slug}>
+                                        {title}
+                                    </Link>
+                                </h3>
+                                <Img fluid={node.image.fluid} />
+                                <p>{node.subtitle}</p>
+                            </div>
+                        )
+                    })}
+                </Block>
+                <Block>
+                    <Bio />
+                </Block>
             </Layout>
         )
     }
@@ -51,6 +64,11 @@ export const pageQuery = graphql`
         allContentfulPost {
             edges {
                 node {
+                    image {
+                        fluid {
+                            ...GatsbyContentfulFluid
+                        }
+                    }
                     title
                     subtitle
                     author
