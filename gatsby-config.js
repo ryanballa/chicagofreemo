@@ -11,7 +11,7 @@ module.exports = {
     description: `A group of Chicagoans interested in Free-Mo.`,
     siteUrl: `https://chicagofreemo.org`,
     social: {
-      twitter: `kylemathews`,
+      twitter: ``,
     },
   },
   plugins: [
