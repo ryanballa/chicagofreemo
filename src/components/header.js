@@ -58,7 +58,7 @@ const Header = ({ siteTitle }) => (
         <li><Link to="learn" activeClassName="active">Learn</Link></li>
         <li><Link to="blog" activeClassName="active">Blog</Link></li>
         <li><Link to="plan" activeClassName="active">Plan</Link></li>
-        <li><AnchorButton intention="inverse" title="Join Us" /></li>
+        <li><AnchorButton location="contact" intention="inverse" title="Join Us" /></li>
       </ol>
     </nav>
   </StyledHeader>
