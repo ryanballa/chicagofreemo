@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import HeroBanner from '../components/heroBanner'
 import Block from '../components/block'
 import Bio from "../components/bio"
-import Layout from "../components/Layout"
+import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import newton from '../images/newton.jpeg'
