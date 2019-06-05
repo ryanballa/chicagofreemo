@@ -15,6 +15,9 @@ const StyledSection = styled('section')({
         justifyContent: 'center',
         paddingLeft: '10px',
     },
+    '& h4': {
+        marginBottom: '10px',
+    },
     '& .inst': {
         marginBottom: '10px',
     },
@@ -98,7 +101,7 @@ const PlanPage = () => {
                 setScore3(value);
             break;
             case 4:
-                setScore3(value);
+                setScore4(value);
             break;
         }
     }
@@ -162,16 +165,35 @@ const PlanPage = () => {
                         <li className={score4 === 6 ? 'clicked' : ''} onClick={() => handleAnswerSelection(4, 6)}><span>Building a layout</span></li>
                         <li className={score4 === 8 ? 'clicked' : ''} onClick={() => handleAnswerSelection(4, 8)}><span>Planning</span></li>
                     </ul>
-                    <h3>Results</h3>
-                    <h2>Suggestion: </h2>
-                    
-                    {(score3 === 2 || score < 8) && <h4>Join a model railroad club</h4>}
+                    <h3>Suggestions</h3>
+                    {(score3 === 2 || score < 8 || score4 === 2) && (<div>
+                        <h4>Join a model railroad club</h4>
+                        <p>A model railroad club is a great way to get to know other model railroaders. It's also a perfect place to run trains if you don't have the space to build a layout.</p>
+                    </div>)
+                    }
+                    {((score3 > 2 && score > 2) && (score3 > 4 || score4 === 2)) && (<div>
+                        <h4>Join a modular club</h4>
+                        <p>The benefits of a modular club are similar to a traditional club. The one difference is the ability to bring your own layout. Building something you own can provide a greater sense of accomplishment and freedom.</p>
+                    </div>
+                    )}
+                    {(score2 > 4) && (<div>
+                        <h4>Consider Display Cases</h4>
+                        <p>Having a large collection often means you are unable to display it all at once. Putting up display cases would allow you to enjoy your trains even when they are not running.</p>
+                    </div>)
+                    }
 
-                    {((score3 > 2 && score > 2) || score3 > 4) && <h4>Join a modular club</h4>}
 
-                    {(score3 === 4) &&<h4>Build a small shelf layout</h4>}
+                    {(score3 === 4 || ( score4 === 4 || score4 === 6)) && (<div>
+                        <h4>Build a small shelf layout</h4>
+                        <p>Just want to run trains? Even without a lot of space you can build something amazing looking, is fun to operate, and gives you the benefits of a larger layout in a small package. Something small is very achievable with limited time and space.</p>
+                    </div>
+                    )}
 
-                    {(score3 > 4) && <h4>Build a layout</h4>}
+                    {(score3 > 4 && score > 4) && (<div>
+                        <h4>Build a layout</h4>
+                        <p>With time and space you can build something large. There's much to keep in mind when you plan a large investment in time and resources.</p>
+                    </div>
+                    )}
                 </StyledSection>
             </Block>
         </Layout>
