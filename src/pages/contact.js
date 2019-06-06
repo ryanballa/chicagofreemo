@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import Layout from '../components/layout'
 import HeroBanner from '../components/heroBanner'
@@ -41,10 +41,6 @@ const StyledSection = styled('section')({
 
 const ContactPage = () => {
 
-    const [score, setScore] = useState({});
-    const iconHeight = 33;
-    const iconWidth = 33;
-
     return (
         <Layout>
             <HeroBanner
@@ -59,7 +55,7 @@ const ContactPage = () => {
                 <h1>Contact Us</h1>
                 <p>We're happy to hear from you and to answer any questions you might have.</p>
                 <StyledSection>
-                <form name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true">
+                <form action="contact-success" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true">
                     <p>
                         <label><span>Full Name</span> <input type="text" name="name" /></label>
                     </p>
