@@ -55,7 +55,9 @@ const ContactPage = () => {
                 <h1>Contact Us</h1>
                 <p>We're happy to hear from you and to answer any questions you might have.</p>
                 <StyledSection>
-                <form action="contact-success" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true">
+                <form action="contact-success" name="contact" method="post" data-netlify-honeypot="bot-field" data-netlify="true">
+                    <input type="hidden" name="bot-field" />
+                    <input type="hidden" name="form-name" value="contact" />
                     <p>
                         <label><span>Full Name</span> <input type="text" name="name" /></label>
                     </p>
