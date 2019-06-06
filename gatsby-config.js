@@ -16,6 +16,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: 'https://ryanballa.us20.list-manage.com/subscribe/post?u=8362a5013f59d2db96caeb83f&amp;id=1dd6a08cf5', // add your MC list endpoint here; see instructions below
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,

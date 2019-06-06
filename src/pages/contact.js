@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import styled from '@emotion/styled'
 import Layout from '../components/layout'
 import HeroBanner from '../components/heroBanner'
 import Block from '../components/block'
-import bostonandmaine from '../images/bostonandmaine.jpg'
+import newtonstation from '../images/newtonstation.jpeg'
 import HR from '../components/hr'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 const StyledSection = styled('section')({
     'button': {
@@ -41,16 +42,56 @@ const StyledSection = styled('section')({
 
 const ContactPage = () => {
 
+    const [email, setEmail] = useState('');
+    const [mailingListResult, setMailingListResult] = useState('');
+
+    const handleChange = e => {
+        setEmail(e.target.value);
+        console.log({
+            [`${e.target.name}`]: e.target.value,
+        });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addToMailchimp(email) // listFields are optional if you are only capturing the email address.
+        .then(data => {
+        // I recommend setting data to React state
+        // but you can do whatever you want (including ignoring this `then()` altogether)
+        console.log(data)
+        let message = data.msg;
+        if (data.result === 'error') {
+            message = "You are already signed up for our newsletter."
+        }
+        setMailingListResult(message);
+        })
+        .catch(() => {
+        // unnecessary because Mailchimp only ever
+        // returns a 200 status code
+        // see below for how to handle errors
+        })
+    }
+
     return (
         <Layout>
             <HeroBanner
-            image={bostonandmaine}
+            image={newtonstation}
             title="Join Us" 
             subtitle="Become a member of Chicago Free-Mo" 
             />
             <Block>
                 <h1>Mailing List</h1>
-                <p>Coming Soon</p>
+                <StyledSection>
+                    <form onSubmit={handleSubmit}>
+                        <p>
+                            <label><span>Email</span> <input onChange={handleChange} type="text" name="email" /></label>
+                        </p>
+                        <p>
+                            <button type="submit">Sign Up</button>
+                        </p>
+                        <p>{mailingListResult}</p>
+                    </form>
+                </StyledSection>
                 <HR />
                 <h1>Contact Us</h1>
                 <p>We're happy to hear from you and to answer any questions you might have.</p>
