@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import AnchorButton from '../components/anchorButton'
 
 const StyledHR = styled('hr')({
     background: '#B1B1B1',
@@ -14,5 +13,3 @@ const HR = ({ children }) => (
 )
 
 export default HR
-
-

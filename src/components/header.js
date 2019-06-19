@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import AnchorButton from '../components/anchorButton'
 import Logo from '../components/logo'
-import { colors } from '../utils/styling'
+import { breakPoints, colors } from '../utils/styling'
 
 const StyledHeader = styled('header')({
   '& h1': {
@@ -19,6 +19,9 @@ const StyledHeader = styled('header')({
     margin: '0 30px 0 0',
     listStyle: 'none',
     padding: 0,
+    [breakPoints.phone]: {
+      marginRight: '20px',
+    },
   },
   '& li > a': {
     '&.active': {
@@ -34,6 +37,13 @@ const StyledHeader = styled('header')({
     textDecoration: 'none',
   },
   '& ol': {
+    [breakPoints.phone]: {
+      '& #actionItem': {
+        display: 'block',
+        float: 'right',
+        margin: '0 auto',
+      },
+    },
     margin: 0,
     padding: 0,
   },
@@ -49,7 +59,7 @@ const StyledHeader = styled('header')({
 const Header = ({ siteTitle }) => (
   <StyledHeader>
     <h1>
-      <Link to="/">
+      <Link to="index">
         <Logo />
       </Link>
     </h1>
@@ -58,7 +68,7 @@ const Header = ({ siteTitle }) => (
         <li><Link to="learn" activeClassName="active">Learn</Link></li>
         <li><Link to="blog" activeClassName="active">Blog</Link></li>
         <li><Link to="plan" activeClassName="active">Plan</Link></li>
-        <li><AnchorButton location="contact" intention="inverse" title="Join Us" /></li>
+        <li id="actionItem"><AnchorButton location="contact" intention="inverse" title="Join Us" /></li>
       </ol>
     </nav>
   </StyledHeader>

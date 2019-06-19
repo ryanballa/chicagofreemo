@@ -5,6 +5,7 @@ import HeroBanner from '../components/heroBanner'
 import Block from '../components/block'
 import bostonandmaine from '../images/bostonandmaine.jpg'
 import construction from '../images/construction.jpeg'
+import { breakPoints } from '../utils/styling'
 
 const StyledSection = styled('section')({
     '& h2': {
@@ -32,19 +33,19 @@ const StyledSection = styled('section')({
                 height: '6px',
                 width: '100%',
             },
-            '&:nth-child(1):after': {
+            '&:nth-of-type(1):after': {
                 background: 'rgb(36, 183, 255)',
                 borderTop: '1px soid rgb(31, 156, 217)',
             },
-            '&:nth-child(2):after': {
+            '&:nth-of-type(2):after': {
                 background: '#6297cc',
                 borderTop: '#3d5e7f',
             },
-            '&:nth-child(3):after': {
+            '&:nth-of-type(3):after': {
                 background: '#2e5fcc',
                 borderTop: '#1b3878',
             },
-            '&:nth-child(4):after': {
+            '&:nth-of-type(4):after': {
                 background: '#2ebccc',
                 borderTop: '#134c52',
             },
@@ -67,7 +68,12 @@ const StyledSection = styled('section')({
             width: '110px',
         },
         '& li:last-child': {
+          [breakPoints.computer]: {
             marginRight: 0,
+          },
+          [breakPoints.phone]: {
+            marginRight: '20px',
+          },
         },
         '& li:hover': {
             cursor: 'pointer',
@@ -75,6 +81,7 @@ const StyledSection = styled('section')({
         fontSize: '75%',
         listStyle: 'none',
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'center',
 
     }
@@ -110,8 +117,8 @@ const PlanPage = () => {
         <Layout>
             <HeroBanner
             image={bostonandmaine}
-            title="Interactive Layout Planner" 
-            subtitle="Getting started is easy and we can help." 
+            title="Interactive Layout Planner"
+            subtitle="Getting started is easy and we can help."
             />
             <Block>
                 <h1>Let's Begin</h1>
@@ -122,7 +129,7 @@ const PlanPage = () => {
                         <circle cx="12" cy="12" r="10"></circle>
                         <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>Time</h2>
-                    
+
                     <p>Model railroading is approachable for anyone and their time allowances. From a little time to a lot of time you can get a lot of of the hobby.</p>
                     <p className="inst"><b>Select the amout of time you have available.</b></p>
                     <ul className="selectOption">
@@ -197,7 +204,7 @@ const PlanPage = () => {
                 </StyledSection>
             </Block>
         </Layout>
-    )   
+    )
 }
 
 export default PlanPage

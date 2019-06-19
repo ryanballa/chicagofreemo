@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import AnchorButton from '../components/anchorButton'
-import { colors, fonts } from '../utils/styling'
+import { breakPoints, colors, fonts } from '../utils/styling'
 
 const StyledSection = styled('section')({
     '& h1' : {
@@ -21,6 +20,10 @@ const StyledSection = styled('section')({
     maxWidth: '500px',
     textAlign: 'center',
     width: '50%',
+    [breakPoints.phone]: {
+        padding: '0 20px',
+        width: '100%',
+    },
 })
 
 const Block = ({ children }) => (
@@ -30,5 +33,3 @@ const Block = ({ children }) => (
 )
 
 export default Block
-
-
